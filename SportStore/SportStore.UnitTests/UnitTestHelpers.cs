@@ -7,7 +7,7 @@ using System.Linq;
 namespace SportStore.UnitTests {
     public static class UnitTestHelpers {
 
-        public static void ShoudEqual<T>(this T actualValue, T expectedValue) {
+        public static void ShouldEqual<T>(this T actualValue, T expectedValue) {
             Assert.AreEqual(expectedValue, actualValue);
         }
 

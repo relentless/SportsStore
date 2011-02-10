@@ -27,9 +27,9 @@ namespace SportStore.UnitTests {
 
             // assert
             var displayedProducts = (IList<Product>)result.ViewData.Model;
-            displayedProducts.Count.ShoudEqual(2);
-            displayedProducts[0].Name.ShoudEqual("p4");
-            displayedProducts[1].Name.ShoudEqual("p5");
+            displayedProducts.Count.ShouldEqual(2);
+            displayedProducts[0].Name.ShouldEqual("p4");
+            displayedProducts[1].Name.ShouldEqual("p5");
         }
     }
 }
