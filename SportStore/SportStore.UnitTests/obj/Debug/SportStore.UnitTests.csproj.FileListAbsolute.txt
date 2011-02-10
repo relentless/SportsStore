@@ -1,5 +1,0 @@
-C:\Programs\SportStore\SportStore\SportStore.UnitTests\bin\Debug\SportStore.UnitTests.dll
-C:\Programs\SportStore\SportStore\SportStore.UnitTests\bin\Debug\SportStore.UnitTests.pdb
-C:\Programs\SportStore\SportStore\SportStore.UnitTests\obj\Debug\ResolveAssemblyReference.cache
-C:\Programs\SportStore\SportStore\SportStore.UnitTests\obj\Debug\SportStore.UnitTests.dll
-C:\Programs\SportStore\SportStore\SportStore.UnitTests\obj\Debug\SportStore.UnitTests.pdb
