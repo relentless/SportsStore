@@ -10,9 +10,8 @@ namespace SportStore.WebUI.Controllers
     {
         private IProductsRepository productsRepository;
 
-        public ProductsController() {
-            string connectionString = @"Server=.\SQLEXPRESS2005;Database=SportStore;Trusted_Connection=yes;";
-            productsRepository = new SqlProductsRepository(connectionString);
+        public ProductsController(IProductsRepository productsRepository) {
+            this.productsRepository = productsRepository;
         }
 
         public ActionResult List()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SportStore.WebUI.Infrastructure;
 
 namespace SportStore.WebUI {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -25,6 +26,8 @@ namespace SportStore.WebUI {
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
+
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
         }
     }
 }
