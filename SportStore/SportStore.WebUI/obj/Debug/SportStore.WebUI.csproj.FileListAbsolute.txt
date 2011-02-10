@@ -1,0 +1,7 @@
+C:\Programs\SportStore\SportStore\SportStore.WebUI\bin\SportStore.WebUI.dll
+C:\Programs\SportStore\SportStore\SportStore.WebUI\bin\SportStore.WebUI.pdb
+C:\Programs\SportStore\SportStore\SportStore.WebUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Programs\SportStore\SportStore\SportStore.WebUI\obj\Debug\SportStore.WebUI.dll
+C:\Programs\SportStore\SportStore\SportStore.WebUI\obj\Debug\SportStore.WebUI.pdb
+C:\Programs\SportStore\SportStore\SportStore.WebUI\bin\SportStore.Domain.dll
+C:\Programs\SportStore\SportStore\SportStore.WebUI\bin\SportStore.Domain.pdb
