@@ -3,7 +3,9 @@ using NUnit.Framework;
 using SportStore.Domain.Abstract;
 using SportStore.Domain.Entities;
 using SportStore.WebUI.Controllers;
+using SportStore.WebUI.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SportStore.UnitTests {
     [TestFixture]
@@ -26,7 +28,7 @@ namespace SportStore.UnitTests {
             var result = controller.List(2);
 
             // assert
-            var displayedProducts = (IList<Product>)result.ViewData.Model;
+            var displayedProducts = ((ProductListViewModel)result.ViewData.Model).Products.ToList();
             displayedProducts.Count.ShouldEqual(2);
             displayedProducts[0].Name.ShouldEqual("p4");
             displayedProducts[1].Name.ShouldEqual("p5");

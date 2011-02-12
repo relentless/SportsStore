@@ -3,7 +3,9 @@ using System.Web.Mvc;
 using System.Linq;
 using SportStore.Domain.Abstract;
 using SportStore.Domain.Concrete;
+using SportStore.WebUI.Models;
 using System;
+using System.ComponentModel;
 
 namespace SportStore.WebUI.Controllers
 {
@@ -17,12 +19,20 @@ namespace SportStore.WebUI.Controllers
             this.productsRepository = productsRepository;
         }
 
-        public ViewResult List(int page)
+        public ViewResult List([DefaultValue(1)] int page)
         {
-            return View(productsRepository.Products
-                .Skip((page-1) * PageSize)
-                .Take(PageSize)
-                .ToList());
+            return View(
+                new ProductListViewModel {
+                    Products = productsRepository.Products
+                        .Skip((page - 1) * PageSize)
+                        .Take(PageSize)
+                        .ToList(),
+                    Paging = new PagingInfo {
+                        CurrentPage = page,
+                        ItemsPerPage = PageSize,
+                        TotalItems = productsRepository.Products.Count()
+                    }
+                });
         }
 
     }
