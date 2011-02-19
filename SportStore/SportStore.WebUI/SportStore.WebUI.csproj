@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Products\List.aspx" />
+    <Content Include="Views\Products\ProductSummary.ascx" />
     <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
