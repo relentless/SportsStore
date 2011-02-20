@@ -6,6 +6,8 @@ using SportStore.Domain.Concrete;
 using SportStore.WebUI.Models;
 using System;
 using System.ComponentModel;
+using System.Web.Routing;
+using System.Collections.Generic;
 
 namespace SportStore.WebUI.Controllers
 {
@@ -19,20 +21,53 @@ namespace SportStore.WebUI.Controllers
             this.productsRepository = productsRepository;
         }
 
-        public ViewResult List([DefaultValue(1)] int page)
+        public ViewResult List([DefaultValue("All")] string category, [DefaultValue(1)] int page)
         {
+            var filteredProducts = productsRepository.Products.ToList();
+
+            if( category != "All") {
+                filteredProducts = filteredProducts.Where(x => x.Category == category ).ToList();
+            }
+
             return View(
                 new ProductListViewModel {
-                    Products = productsRepository.Products
+                    Products = filteredProducts
                         .Skip((page - 1) * PageSize)
                         .Take(PageSize)
                         .ToList(),
                     Paging = new PagingInfo {
                         CurrentPage = page,
                         ItemsPerPage = PageSize,
-                        TotalItems = productsRepository.Products.Count()
-                    }
+                        TotalItems = filteredProducts.Count()
+                    },
+                    Category = category ?? "All"
                 });
+        }
+
+        public PartialViewResult CategoryList(string currentCategory) {
+            var categories = productsRepository.Products.Select(product => product.Category).Distinct();
+
+            var links = new List<CategoryLink> {
+                new CategoryLink {
+                Controller = "Products",
+                Action = "List",
+                Category = "All",
+                IsSelected = currentCategory == "All"
+                }
+            };
+
+            links.AddRange(categories.Select(category => GenerateCategoryLink(category, currentCategory)).ToList());
+
+            return PartialView(links);
+        }
+
+        private CategoryLink GenerateCategoryLink(string category, string currentCategory) {
+            return new CategoryLink {
+                Controller = "Products",
+                Action = "List",
+                Category = category,
+                IsSelected = category == currentCategory
+            };
         }
 
     }

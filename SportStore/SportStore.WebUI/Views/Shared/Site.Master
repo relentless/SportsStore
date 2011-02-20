@@ -12,7 +12,7 @@
         <div class="title">Sports Store</div>
     </div>
     <div id="categories">
-        todo
+        <asp:ContentPlaceHolder ID="Categories" runat="server" />
     </div>
     <div id="content">
         <asp:ContentPlaceHolder ID="MainContent" runat="server" />

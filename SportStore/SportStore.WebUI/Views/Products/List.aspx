@@ -5,7 +5,12 @@ Inherits="System.Web.Mvc.ViewPage<SportStore.WebUI.Models.ProductListViewModel>"
 	Products
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="Categories" runat="server">
+<%Html.RenderAction("CategoryList", new { currentCategory = Model.Category }); %>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<h1>Products: <%=Html.Encode(Model.Category) %></h1>
 
     <% foreach (var product in Model.Products) { %>
         <% Html.RenderPartial("ProductSummary", product); %>
