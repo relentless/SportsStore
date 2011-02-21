@@ -10,8 +10,6 @@ Inherits="System.Web.Mvc.ViewPage<SportStore.WebUI.Models.ProductListViewModel>"
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-<h1>Products: <%=Html.Encode(Model.Category) %></h1>
-
     <% foreach (var product in Model.Products) { %>
         <% Html.RenderPartial("ProductSummary", product); %>
     <%} %>
