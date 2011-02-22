@@ -65,12 +65,14 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\CategoryLink.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\ProductListViewModel.cs" />
@@ -103,6 +105,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Cart\Index.aspx" />
     <Content Include="Views\Products\CategoryList.ascx" />
     <Content Include="Views\Products\List.aspx" />
     <Content Include="Views\Products\ProductSummary.ascx" />

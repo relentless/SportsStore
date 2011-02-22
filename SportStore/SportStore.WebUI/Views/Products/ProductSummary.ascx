@@ -4,6 +4,7 @@
     
     <% using (Html.BeginForm("AddProduct", "Cart")) { %>
         <%= Html.HiddenFor( x => x.ProductID ) %>
+        <%= Html.Hidden("redirectToUrl", Request.Url.PathAndQuery) %>
         <input type="submit" value="Add to cart" />
     <% } %>
     <%=Html.Encode(Model.Description)%>

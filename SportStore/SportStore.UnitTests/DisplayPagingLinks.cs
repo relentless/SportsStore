@@ -25,10 +25,10 @@ public class DisplayPagingLinks {
 		MvcHtmlString result = helper.PagingLinks(info, pageUrl);
 		
 		// assert
-		result.ToString().ShouldEqual(@"<a href=""Page1"">1</a>
-<a class=""selected"" href=""Page2"">2</a>
-<a href=""Page3"">3</a>
-");
+		result.ToString().ShouldEqual(@"<a href=""Page1"">1</a>" + Environment.NewLine +
+                                        @"<a class=""selected"" href=""Page2"">2</a>" + Environment.NewLine +
+                                        @"<a href=""Page3"">3</a>" + Environment.NewLine +
+                                        "");
 	}
 }
 

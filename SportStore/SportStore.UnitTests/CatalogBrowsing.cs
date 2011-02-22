@@ -66,7 +66,7 @@ namespace SportStore.UnitTests {
             controller.PageSize = 3;
 
             // act
-            var result = controller.List(null, 1);
+            var result = controller.List("All", 1);
 
             // assert
             var displayedProducts = ((ProductListViewModel)result.ViewData.Model).Products.ToList();
