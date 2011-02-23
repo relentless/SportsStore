@@ -44,7 +44,7 @@ namespace SportStore.WebUI.Controllers
                 });
         }
 
-        public PartialViewResult CategoryList(string currentCategory) {
+        public PartialViewResult CategoryList(string category) {
             var categories = productsRepository.Products.Select(product => product.Category).Distinct();
 
             var links = new List<CategoryLink> {
@@ -52,11 +52,11 @@ namespace SportStore.WebUI.Controllers
                 Controller = "Products",
                 Action = "List",
                 Category = "All",
-                IsSelected = currentCategory == "All"
+                IsSelected = category == "All"
                 }
             };
 
-            links.AddRange(categories.Select(category => GenerateCategoryLink(category, currentCategory)).ToList());
+            links.AddRange(categories.Select(x => GenerateCategoryLink(x, category)).ToList());
 
             return PartialView(links);
         }

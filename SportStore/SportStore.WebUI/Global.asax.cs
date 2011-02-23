@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using SportStore.WebUI.Infrastructure;
+using SportStore.Domain.Entities;
 
 namespace SportStore.WebUI {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -23,7 +24,7 @@ namespace SportStore.WebUI {
             routes.MapRoute(
                 null, // Route name
                 "{category}", // URL with parameters
-                new { controller = "Products", action = "List", page = 1 } // Parameter defaults
+                new { controller = "Products", action = "List", category = "All", page = 1 } // Parameter defaults
             );
 
             routes.MapRoute(
@@ -38,6 +39,8 @@ namespace SportStore.WebUI {
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
 
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
         }

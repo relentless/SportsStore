@@ -9,16 +9,32 @@ namespace SportStore.Domain.Entities {
         public IList<CartLine> Lines { get { return _lines; } }
 
         public void  Add( Product product, int quantity ){
-            _lines.Add(new CartLine { Product = product, Quantity = quantity });
+
+            if (_lines.Count(x=>x.Product.ProductID == product.ProductID) > 0) {
+                _lines.Where(x=>x.Product.ProductID == product.ProductID).First().Quantity += quantity;
+            }
+            else {
+                _lines.Add(new CartLine { Product = product, Quantity = quantity });
+            }
         }
 
         public void Clear() {
             _lines.Clear();
+        }
+
+        public decimal TotalCost {
+            get {
+                return _lines.Select(x => x.TotalPrice).Sum();
+            }
         }
     }
 
     public class CartLine {
         public Product Product { get; set; }
         public int Quantity { get; set; }
+
+        public decimal TotalPrice {
+            get { return Product.Price * Quantity; }
+        }
     }
 }
