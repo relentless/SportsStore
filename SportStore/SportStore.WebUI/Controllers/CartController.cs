@@ -36,5 +36,9 @@ namespace SportStore.WebUI.Controllers
 
             return RedirectToAction("Index", new { redirectToUrl = RedirectionUrl });
         }
+
+        public ViewResult Summary(Cart cart) {
+            return View(cart);
+        }
     }
 }
