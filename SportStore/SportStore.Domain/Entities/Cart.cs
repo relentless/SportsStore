@@ -18,6 +18,11 @@ namespace SportStore.Domain.Entities {
             }
         }
 
+        public void Remove(int productId) {
+
+            _lines.RemoveAll(x => x.Product.ProductID == productId);
+        }
+
         public void Clear() {
             _lines.Clear();
         }

@@ -18,6 +18,7 @@
                 <th align="right">
                     Subtotal
                 </th>
+                <th />
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,13 @@
                 <td align="right">
                     <%=Html.Encode(line.TotalPrice.ToString("c"))%>
                 </td>
+                <td>
+                    <%using (Html.BeginForm("RemoveProduct", "Cart")) { %>
+                    <%=Html.Hidden("productId", line.Product.ProductID) %>
+                    <%=Html.HiddenFor(x => x.RedirectionUrl) %>
+                        <input type="submit" value="Remove" />
+                    <% } %>
+                </td>
             </tr>
             <% } %>
         </tbody>
@@ -40,6 +48,7 @@
         <td colspan="3" align="right">
         <%=Html.Encode("Total: " + Model.Cart.TotalCost.ToString("c"))%>
         </td>
+        <td />
         </tr>
         </tfoot>
     </table>
