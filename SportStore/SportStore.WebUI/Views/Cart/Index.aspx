@@ -54,6 +54,7 @@
     </table>
     <p align="center" class="actionButtons">
     <a href="<%=Model.RedirectionUrl%>">Continue Shopping</a>
+    <%=Html.ActionLink("Checkout now", "Checkout") %>
     </p>
     
 </asp:Content>

@@ -106,6 +106,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Cart\Checkout.aspx" />
+    <Content Include="Views\Cart\ConfirmDetails.aspx" />
     <Content Include="Views\Cart\Index.aspx" />
     <Content Include="Views\Cart\Summary.ascx" />
     <Content Include="Views\Products\CategoryList.ascx" />

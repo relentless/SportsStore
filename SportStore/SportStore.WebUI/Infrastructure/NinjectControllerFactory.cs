@@ -25,6 +25,9 @@ namespace SportStore.WebUI.Infrastructure {
                     .WithConstructorArgument("connectionString",
                     ConfigurationManager.ConnectionStrings["AppDb"].ConnectionString
                     );
+
+                Bind<IOrderProcessor>()
+                    .To<FakeOrderProcessor>();
             }
         }
 

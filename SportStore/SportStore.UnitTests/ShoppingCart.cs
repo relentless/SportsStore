@@ -19,7 +19,7 @@ namespace SportStore.UnitTests {
             repository.Products.Returns( new List<Product> { someProduct }.AsQueryable() );
             Cart cart = new Cart();
 
-            CartController controller = new CartController(repository);
+            CartController controller = new CartController(repository, null);
 
             // act
             controller.AddProduct(123, null, cart);
@@ -34,7 +34,7 @@ namespace SportStore.UnitTests {
             // arrange
             IProductsRepository repository = Substitute.For<IProductsRepository>();
             repository.Products.Returns(new List<Product> { new Product { ProductID = 123 } }.AsQueryable());
-            CartController controller = new CartController(repository);
+            CartController controller = new CartController(repository, null);
 
             // act
             var result = controller.AddProduct(123, null, new Cart());
