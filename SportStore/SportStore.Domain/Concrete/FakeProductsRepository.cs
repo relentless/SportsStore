@@ -16,5 +16,9 @@ namespace SportStore.Domain.Concrete {
         public IQueryable<Product> Products {
             get { return _products; }
         }
+
+        public void Save(Product product) {
+            throw new NotImplementedException();
+        }
     }
 }

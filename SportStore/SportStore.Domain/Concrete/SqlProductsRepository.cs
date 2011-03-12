@@ -16,5 +16,17 @@ namespace SportStore.Domain.Concrete {
         public IQueryable<Product> Products {
             get { return productsTable; }
         }
+
+        public void Save(Product product) {
+            if (product.ProductID == 0) {
+                productsTable.InsertOnSubmit(product);
+            }
+            else if (productsTable.GetOriginalEntityState(product) == null) {
+                productsTable.Attach(product);
+                productsTable.Context.Refresh(RefreshMode.KeepCurrentValues, product);
+            }
+
+            productsTable.Context.SubmitChanges();
+        }
     }
 }
