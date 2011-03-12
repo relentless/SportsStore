@@ -28,5 +28,11 @@ namespace SportStore.Domain.Concrete {
 
             productsTable.Context.SubmitChanges();
         }
+
+
+        public void Delete(Product product) {
+            productsTable.DeleteOnSubmit(product);
+            productsTable.Context.SubmitChanges();
+        }
     }
 }

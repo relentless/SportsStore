@@ -50,7 +50,7 @@
                 <%= Html.Encode(item.Category) %>
             </td>
             <td>
-            <% using(Html.BeginForm("Edit")) { %>
+            <% using(Html.BeginForm("Delete", "Admin")) { %>
                 
                 <%= Html.Hidden("ProductId", item.ProductID)%>
                 <input type="submit" value="Delete" />
