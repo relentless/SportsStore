@@ -20,5 +20,7 @@
     <div id="content">
         <asp:ContentPlaceHolder ID="MainContent" runat="server" />
     </div>
+    <script src="../../Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+    <script src="../../Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
 </body>
 </html>

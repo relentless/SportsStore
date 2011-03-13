@@ -8,6 +8,7 @@ using SportStore.Domain.Entities;
 
 namespace SportStore.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductsRepository _repository;
