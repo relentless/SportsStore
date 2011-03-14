@@ -21,6 +21,8 @@ namespace SportStore.WebUI.Controllers
             this.productsRepository = productsRepository;
         }
 
+        [OutputCache(CacheProfile="ProductList")]
+        [HttpGet]
         public ViewResult List([DefaultValue("All")] string category, [DefaultValue(1)] int page)
         {
             var filteredProducts = productsRepository.Products.ToList();

@@ -8,8 +8,10 @@ Inherits="System.Web.Mvc.ViewPage<SportStore.WebUI.Models.ProductListViewModel>"
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <% foreach (var product in Model.Products) { %>
         <% Html.RenderPartial("ProductSummary", product); %>
-    <%} %>
+    <% } %>
     <div class="pager">
-    <%= Html.PagingLinks(Model.Paging, pageNum => Url.Action("List", new { page = pageNum })) %>
+    <%= Html.PagingLinks(Model.Paging, pageNum => Url.ProductsList(pageNum)) %>
 </div>
+
+<p>Data from: <%=DateTime.Now.ToLongTimeString() %></p>
 </asp:Content>

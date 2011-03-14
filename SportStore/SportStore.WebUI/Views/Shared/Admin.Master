@@ -12,7 +12,7 @@
 <p><%=Html.Encode(TempData["message"]) %></p>
 <% } %>
     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-    <script src="../../Scripts/MicrosoftAjax.js" type="text/javascript"></script>
-    <script src="../../Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
+    <script src="<%= Url.Script("MicrosoftAjax.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Script("MicrosoftMvcValidation.js") %>" type="text/javascript"></script>
 </body>
 </html>

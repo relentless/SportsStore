@@ -81,6 +81,7 @@
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\ProductListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrlHelpers\UrlHelperExtentions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -122,6 +123,7 @@
     <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Admin\Edit.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Cart\CartLine.ascx" />
     <Content Include="Views\Shared\Admin.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

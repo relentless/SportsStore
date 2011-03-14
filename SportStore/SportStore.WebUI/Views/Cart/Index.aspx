@@ -24,15 +24,7 @@
         <tbody>
             <% foreach (var line in Model.Cart.Lines) { %>
             <tr>
-                <td align="left">
-                    <%=Html.Encode(line.Product.Name)%>
-                </td>
-                <td align="right">
-                    <%=Html.Encode(line.Quantity)%>
-                </td>
-                <td align="right">
-                    <%=Html.Encode(line.TotalPrice.ToString("c"))%>
-                </td>
+                <% Html.RenderPartial("CartLine", line); %>
                 <td>
                     <%using (Html.BeginForm("RemoveProduct", "Cart")) { %>
                     <%=Html.Hidden("productId", line.Product.ProductID) %>

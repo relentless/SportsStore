@@ -17,20 +17,24 @@ namespace SportStore.WebUI.Controllers
             _repository = repository;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View(_repository.Products.ToList());
         }
 
+        [HttpGet]
         public ActionResult Edit(int ProductID) {
             var product = _repository.Products.Where(x => x.ProductID == ProductID).First();
             return View(product);
         }
 
+        [HttpGet]
         public ActionResult Create() {
             return View("Edit", new Product());
         }
 
+        [HttpPost]
         public ActionResult Delete(int ProductID) {
             var product = _repository.Products.Where(x => x.ProductID == ProductID).First();
             _repository.Delete(product);

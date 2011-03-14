@@ -19,10 +19,12 @@ namespace SportStore.WebUI.Controllers
             _orderProcessor = orderProcessor;
         }
 
+        [HttpGet]
         public ViewResult Index(Cart cart, string redirectToUrl) {
             return View(new CartViewModel { Cart = cart, RedirectionUrl = redirectToUrl });
         }
 
+        [HttpPost]
         public RedirectToRouteResult AddProduct(int productId, string redirectToUrl, Cart cart)
         {
             var addedProduct = _repository.Products.FirstOrDefault(x => x.ProductID == productId);
@@ -32,6 +34,7 @@ namespace SportStore.WebUI.Controllers
             return RedirectToAction("Index", new {  redirectToUrl });
         }
 
+        [HttpPost]
         public RedirectToRouteResult RemoveProduct(int productId, string RedirectionUrl, Cart cart) {
 
             cart.Remove(productId);
@@ -39,14 +42,17 @@ namespace SportStore.WebUI.Controllers
             return RedirectToAction("Index", new { redirectToUrl = RedirectionUrl });
         }
 
+        [HttpGet]
         public ViewResult Summary(Cart cart) {
             return View(cart);
         }
 
+        [HttpGet]
         public ViewResult Checkout() {
             return View(new DeliveryDetails());
         }
 
+        [HttpPost]
         public ViewResult ConfirmDetails(Cart cart, DeliveryDetails details) {
             if (ModelState.IsValid) {
                 _orderProcessor.ProcessOrder(cart, details);

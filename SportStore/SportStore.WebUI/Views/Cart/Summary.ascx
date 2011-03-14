@@ -7,6 +7,6 @@
 <%=Model.Lines.Sum(x => x.Quantity) %> items,
 <%=Model.TotalCost.ToString("c") %>
 </span>
-<%=Html.ActionLink("Checkout", "Index", "Cart", new { redirectToUrl = Request.Url.PathAndQuery }, null )%>
+<a href="<%= Url.Checkout(Request.Url.PathAndQuery) %>">Checkout</a>
 </div>
 <% } %>

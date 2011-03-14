@@ -8,6 +8,8 @@
 
     <h2>Delivery Details</h2>
     
+    <% Html.EnableClientValidation(); %>
+    
     <%=Html.ValidationSummary() %>
     
     <% using (Html.BeginForm("ConfirmDetails", "Cart")) { %>

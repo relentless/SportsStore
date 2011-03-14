@@ -9,6 +9,7 @@
     <h2>Edit Product <%=Html.Encode(Model.Name) %></h2>
     <% Html.EnableClientValidation(); %>
     <% using(Html.BeginForm("Edit", "Admin")) { %>
+    <%=Html.Hidden("ProductID") %>
     <%=Html.EditorForModel() %>
 <input type="submit" value="save" />
 <% } %>
